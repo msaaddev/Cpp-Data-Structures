@@ -1,11 +1,12 @@
 #include <iostream>
-#include "node.cpp"
 #include "cStack.cpp"
 using namespace std;
 
 class cQue : protected cStack
 {
     cNode *tail;
+
+public:
     cQue() : tail(NULL) {}
 
     cQue(cNode *&ptr) : cStack(ptr)
@@ -50,7 +51,10 @@ class cQue : protected cStack
             tail = tail->next;
         }
         else
+        {
             tail = top = ptr;
+            cout << "hello ";
+        }
 
         tail->next = NULL;
         ptr = NULL;
@@ -60,5 +64,17 @@ class cQue : protected cStack
     void print()
     {
         cStack::print();
+    }
+
+    cQue &operator=(const cStack &robj)
+    {
+        if (this == &robj)
+            return *this;
+        if (true)
+        {
+            cQue temp;
+            temp.top = top;
+            temp.tail = tail;
+        }
     }
 };

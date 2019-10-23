@@ -32,7 +32,8 @@ int main()
     }
 
     //Checking all the elements present in the stack by printing them
-    cout << "This is a check to see all the elements present in the stack by printing them." << endl  << endl;
+    cout << "This is a check to see all the elements present in the stack by printing them." << endl
+         << endl;
 
     stack.print();
     cout << endl;
@@ -47,7 +48,8 @@ int main()
     stack.push(ptr);
 
     //Now checking that if Stack is empty or not using empty function
-    cout << "This is a check to see if the Stack is empty or not using empty function." << endl << endl;
+    cout << "This is a check to see if the Stack is empty or not using empty function." << endl
+         << endl;
 
     if (stack.isEmpty())
     {
@@ -73,7 +75,9 @@ int main()
     /*
 	After Deleting first latest node from STACK, printing the stack
 	*/
-    cout << endl << endl << "After Deleting first latest node from STACK, printing the stack. " << endl;
+    cout << endl
+         << endl
+         << "After Deleting first latest node from STACK, printing the stack. " << endl;
     stack.print();
 
     /*
@@ -82,7 +86,8 @@ int main()
     cNode *newNode = new cNode();
     newNode->setData(133);
     stack.push(newNode);
-    cout << endl << "Now declaring a node and setting data using setData fuction\n\n";
+    cout << endl
+         << "Now declaring a node and setting data using setData fuction\n\n";
     stack.print();
 
     /*

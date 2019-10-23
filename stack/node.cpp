@@ -11,7 +11,7 @@ public:
     cNode() {}
     cNode(int d) : data(d) {}
     int getData() const;
-    cNode *setData(int data);
+    cNode &setData(int data);
     void print() const;
 };
 
@@ -23,4 +23,10 @@ int cNode::getData() const
 void cNode::print() const
 {
     cout << data << " ";
+}
+
+cNode &cNode::setData(int number)
+{
+    data = number;
+    return *this;
 }

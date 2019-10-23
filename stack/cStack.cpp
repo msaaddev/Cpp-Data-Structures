@@ -14,6 +14,23 @@ public:
         ptr = NULL;
     };
 
+    cStack(const cStack &src)
+    {
+        this->top = src.top;
+        if (src.top)
+        {
+            cNode *sptr, *dptr;
+            dptr = top = new cNode(*src.top);
+            sptr = src.top->next;
+            while (sptr)
+            {
+                dptr->next = new cNode(*sptr);
+                sptr = sptr->next;
+                dptr = dptr->next;
+            }
+        }
+    }
+
     bool isNotEmpty() const
     {
         if (top)
@@ -30,12 +47,12 @@ public:
             return false;
     };
 
-    cStack *push(cNode *ptr)
+    cStack &push(cNode *&ptr)
     {
         ptr->next = top;
         top = ptr;
         ptr = NULL;
-        return this;
+        return *this;
     }
 
     cNode *pop()
@@ -59,5 +76,24 @@ public:
                 ptr = ptr->next;
             }
         }
+    }
+
+    cStack &operator=(const cStack &robj)
+    {
+        if (this == &robj)
+            return *this;
+        if (true)
+        {
+            cStack temp;
+            temp.top = top;
+        }
+
+        if (true)
+        {
+            cStack temp = robj;
+            top = temp.top;
+            temp.top = NULL;
+        }
+        return *this;
     }
 };

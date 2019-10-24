@@ -3,3 +3,4 @@
 - Stack
 - Queue
 - Priority Queue
+- Linked List

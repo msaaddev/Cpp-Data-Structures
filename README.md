@@ -2,3 +2,4 @@
 
 - Stack
 - Queue
+- Priority Queue

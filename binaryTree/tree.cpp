@@ -18,6 +18,7 @@ public:
     bool isNotEmpty();
     void insert(cNode *&ptr);
     void printPreOrder();
+    void printPostOrder();
 };
 
 bool cBinTree::isEmpty()
@@ -83,4 +84,25 @@ void prtPreOrder(cNode *root)
         prtPreOrder(root->rightNode);
     }
 }
+
+void cBinTree::printPostOrder()
+{
+    void prtPostOrder(cNode * root);
+
+    if (!root)
+        cout << "\nEmpty Tree\n";
+    else
+        prtPostOrder(root);
+}
+
+void prtPostOrder(cNode *root)
+{
+    if (root)
+    {
+        prtPostOrder(root->leftNode);
+        prtPostOrder(root->rightNode);
+        root->print();
+    }
+}
+
 }

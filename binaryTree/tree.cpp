@@ -21,6 +21,7 @@ public:
     void printPostOrder();
     void printInfixOrder();
     cNode *search(cNode *&ptr);
+    int getMaxDegree();
     ~cBinTree();
 };
 
@@ -161,4 +162,25 @@ cNode *cBinTree::search(cNode *&ptr)
         }
     }
     return NULL;
+}
+
+int cBinTree::getMaxDegree()
+{
+    void getDegree(cNode * root, int &degree);
+    int degree = 1;
+    getDegree(root, degree);
+}
+
+void getDegree(cNode *root, int &degree)
+{
+    if (root)
+    {
+        if (root->leftNode && root->rightNode)
+            degree = 2;
+        else
+        {
+            getDegree(root->leftNode, degree);
+            getDegree(root->rightNode, degree);
+        }
+    }
 }

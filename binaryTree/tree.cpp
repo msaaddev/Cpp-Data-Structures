@@ -20,6 +20,7 @@ public:
     void printPreOrder();
     void printPostOrder();
     void printInfixOrder();
+    ~cBinTree();
 };
 
 bool cBinTree::isEmpty()
@@ -123,5 +124,22 @@ void prtInfixOrder(cNode *root)
         prtInfixOrder(root->leftNode);
         root->print();
         prtInfixOrder(root->rightNode);
+    }
+}
+
+cBinTree::~cBinTree()
+{
+    void deleteNodes(cNode * root);
+    if (root)
+        deleteNodes(root);
+}
+
+void deleteNodes(cNode *root)
+{
+    if (root)
+    {
+        deleteNodes(root->leftNode);
+        deleteNodes(root->rightNode);
+        delete root;
     }
 }

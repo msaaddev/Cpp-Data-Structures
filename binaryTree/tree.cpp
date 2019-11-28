@@ -20,6 +20,7 @@ public:
     void printPreOrder();
     void printPostOrder();
     void printInfixOrder();
+    cNode *search(cNode *&ptr);
     ~cBinTree();
 };
 
@@ -142,4 +143,22 @@ void deleteNodes(cNode *root)
         deleteNodes(root->rightNode);
         delete root;
     }
+}
+
+cNode *cBinTree::search(cNode *&ptr)
+{
+    if (isNotEmpty())
+    {
+        cNode *rptr = root;
+        while (rptr)
+        {
+            if (rptr == ptr)
+                return ptr;
+            if (rptr->getData() < ptr->getData())
+                rptr = rptr->rightNode;
+            else
+                rptr = rptr->leftNode;
+        }
+    }
+    return NULL;
 }
